@@ -1,9 +1,9 @@
-import { resolve as _resolve, join } from 'path';
-import nodeExternals from 'webpack-node-externals';
-import WebpackShellPlugin from 'webpack-shell-plugin';
-import Dotenv from 'dotenv-webpack';
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+const WebpackShellPlugin = require('webpack-shell-plugin');
+const Dotenv = require('dotenv-webpack');
 
-export default (env) => {
+module.exports = (env) => {
 
     return {
         entry: './src/index.js',
@@ -11,7 +11,7 @@ export default (env) => {
         target: 'node',
         watch: env.NODE_ENV === 'development',
         output: {
-            path: _resolve(__dirname, 'build/'),
+            path: path.resolve(__dirname, 'public/'),
             filename: 'bundle.js'
         },
 
@@ -38,7 +38,7 @@ export default (env) => {
         ],
         //devserver
         devServer: {
-            contentBase: join(__dirname, '/build'),
+            contentBase: path.join(__dirname, '/public'),
             watchContentBase: true,
             proxy: [
                 {
