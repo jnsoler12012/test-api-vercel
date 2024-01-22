@@ -8,8 +8,7 @@
     "startNodemon": "nodemon ./src/index.js",
     "start": "npm run startNodemon & webpack-dev-server --inline --hot",
     "build": "webpack --env NODE_ENV=production --progress",
-    "startServer": "npm run build && node build/bundle.js",
-    "vercel-build": "echo hello"
+    "startServer": "npm run build && node build/bundle.js"
   },
   "author": "",
   "license": "ISC",
